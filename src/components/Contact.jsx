@@ -277,7 +277,7 @@ const Contact = () => {
     
     if (link.text.toLowerCase().includes('resume')) {
       // Open resume in new window instead of downloading
-      window.open('/Resume.pdf', '_blank');
+      window.open('/Chris-Wang/Resume.pdf', '_blank');
     } else {
       // Handle external links
       window.open(link.url, '_blank');
