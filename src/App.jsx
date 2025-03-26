@@ -6,12 +6,12 @@ import Experience from './components/Experience';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Chris-Wang">
       <Routes>
-        <Route path="/Chris-Wang" element={<About />} />
-        <Route path="Chris-Wang/contact" element={<Contact />} />
-        <Route path="Chris-Wang/projects" element={<Projects />} />
-        <Route path="Chris-Wang/experience" element={<Experience />} />
+        <Route path="/" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/experience" element={<Experience />} />
       </Routes>
     </Router>
   );
