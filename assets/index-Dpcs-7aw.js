@@ -189,4 +189,4 @@ Please change the parent <Route path="${K}"> to <Route path="${K==="/"?"*":`${K}
           scrollbar-width: thin;
           scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
         }
-      `})]})};function Dy(){return h.jsx(cy,{children:h.jsxs(qv,{children:[h.jsx(Yn,{path:"/Chris-Wang",element:h.jsx(wy,{})}),h.jsx(Yn,{path:"Chris-Wang/contact",element:h.jsx(My,{})}),h.jsx(Yn,{path:"Chris-Wang/projects",element:h.jsx(jy,{})}),h.jsx(Yn,{path:"Chris-Wang/experience",element:h.jsx(Oy,{})})]})})}J0.createRoot(document.getElementById("root")).render(h.jsx(x.StrictMode,{children:h.jsx(Dy,{})}));
+      `})]})};function Dy(){return h.jsx(cy,{basename:"/Chris-Wang",children:h.jsxs(qv,{children:[h.jsx(Yn,{path:"/",element:h.jsx(wy,{})}),h.jsx(Yn,{path:"/contact",element:h.jsx(My,{})}),h.jsx(Yn,{path:"/projects",element:h.jsx(jy,{})}),h.jsx(Yn,{path:"/experience",element:h.jsx(Oy,{})})]})})}J0.createRoot(document.getElementById("root")).render(h.jsx(x.StrictMode,{children:h.jsx(Dy,{})}));
