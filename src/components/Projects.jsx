@@ -30,7 +30,7 @@ const experienceSections = [
     ]
   },
   {
-    company: "ATS Corporation - Toolset",
+    company: "Debate AI",
     title: "Toolset Software Developer",
     period: "May 2024 - August 2024 | Cambridge",
     details: [
@@ -43,7 +43,7 @@ const experienceSections = [
     ]
   },
   {
-    company: "Royal Canin",
+    company: "WaterLook",
     title: "Data Science Analyst",
     period: "September 2023 - December 2023 | Guelph",
     details: [
