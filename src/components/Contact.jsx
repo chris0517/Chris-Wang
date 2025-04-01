@@ -40,6 +40,16 @@ const Contact = () => {
     backgroundPosition: "center",
   }
   
+  const overlayStyle = {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backgroundColor: "rgba(0, 0, 0, 0.5)", // Adjust the opacity as needed
+    zIndex: 1,
+  };
+  
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
@@ -286,6 +296,8 @@ const Contact = () => {
 
   return (
     <div style={bgStyle} className="relative min-h-screen overflow-hidden" ref={containerRef} tabIndex={0}>
+      <div style={overlayStyle}/>
+
       <div className="relative z-10 min-h-screen p-8">
         {/* Hamburger Menu Button */}
         <button 
