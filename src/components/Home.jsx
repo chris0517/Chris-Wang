@@ -3,6 +3,7 @@ import { Grid, Box, Button, Typography, Container, Paper, Fade, IconButton, Stac
 import { Flip } from '@mui/icons-material';
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import DescriptionIcon from '@mui/icons-material/Description'; // Add this import at the top
 import bg from '../assets/bg3.jpg';
 import PlayBar from "./PlayBar";
 import About from "./About";
@@ -324,8 +325,19 @@ const Home = () => {
                         >
                             <GitHubIcon fontSize="large" />
                         </IconButton>
-                        <Typography></Typography>
+                        <IconButton 
+                          href='/Chris-Wang/Resume.pdf'
+                          target="_blank"
+                          sx={{ 
+                              color: "white",
+                              "&:hover": { color: "#4CAF50" }
+                          }}
+                      >
+                          <DescriptionIcon fontSize="large" />
+                          <Typography sx={{ ml: 1, color: "white" }}>Resume</Typography>
+                      </IconButton>
                     </Box>
+
                 </Box>
 
                 {/* Right Column - Scrollable Content */}
@@ -339,59 +351,89 @@ const Home = () => {
                 >
                     {/* About Section */}
                     <Box ref={aboutRef} sx={{ mb: 8 }}>
-      <Paper 
-        elevation={6} 
-        sx={{ 
-          background: 'transparent', 
-          boxShadow: '0 4px 20px rgba(0,0,0,0.3)', 
-          borderRadius: 2, 
-          overflow: 'hidden' 
-        }}
-      >
-        <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-          {/* Front Side - About */}
-          <Box>
-            <About />
-            <Box sx={{ p: 2, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', gap: 2 }}>
-              <Typography variant="h6" color="white">
-                I am more than just a developer...
-              </Typography>
-              <Button 
-                variant="contained" 
-                color="primary"
-                onClick={handleFlip}
-                sx={{ 
-                  borderRadius: 4,
-                  px: 3,
-                  py: 1
-                }}
-              >
-                Discover My Hobbies
-              </Button>
-            </Box>
-          </Box>
+                    <Paper 
+                      elevation={6} 
+                      sx={{ 
+                        background: 'transparent', 
+                        boxShadow: '0 4px 20px rgba(0,0,0,0.3)', 
+                        borderRadius: 2, 
+                        overflow: 'hidden' 
+                      }}
+                    >
+                      <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+                        {/* Front Side - About */}
+                        <Box>
+                          <About />
+                          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', gap: 2 }}>
+                            <Typography variant="h6" color="white">
+                              I am more than just a developer...
+                            </Typography>
+                            <Button 
+                              variant="contained" 
+                              onClick={handleFlip}
+                              sx={{ 
+                                borderRadius: 4,
+                                px: 3,
+                                py: 1,
+                                bgcolor: '#168d40',
+                                '&:hover': {
+                                  bgcolor: '#1ed760'  // Slightly lighter shade for hover
+                                },
+                                animation: 'pulse 2s infinite',
+                                '@keyframes pulse': {
+                                  '0%': {
+                                    boxShadow: '0 0 0 0 rgba(29, 185, 84, 0.7)',
+                                  },
+                                  '70%': {
+                                    boxShadow: '0 0 0 10px rgba(29, 185, 84, 0)',
+                                  },
+                                  '100%': {
+                                    boxShadow: '0 0 0 0 rgba(29, 185, 84, 0)',
+                                  },
+                                }
+                              }}
+                            >
+                              Click Me!
+                            </Button>
+                          </Box>
+                        </Box>
 
-          {/* Back Side - Hobby */}
-          <Box>
-            <Hobby />
-            <Box sx={{ p: 2, display: 'flex', justifyContent: 'center' }}>
-              <Button 
-                variant="contained" 
-                color="secondary"
-                onClick={handleFlip}
-                sx={{ 
-                  borderRadius: 4,
-                  px: 3,
-                  py: 1
-                }}
-              >
-                Back to About Me
-              </Button>
-            </Box>
-          </Box>
-        </ReactCardFlip>
-      </Paper>
-    </Box>
+                        {/* Back Side - Hobby */}
+                        <Box>
+                          <Hobby />
+                          <Box sx={{ p: 2, display: 'flex', justifyContent: 'center' }}>
+                          <Button 
+                              variant="contained" 
+                              onClick={handleFlip}
+                              sx={{ 
+                                borderRadius: 4,
+                                px: 3,
+                                py: 1,
+                                bgcolor: '#168d40',
+                                '&:hover': {
+                                  bgcolor: '#1ed760'  // Slightly lighter shade for hover
+                                },
+                                animation: 'pulse 2s infinite',
+                                '@keyframes pulse': {
+                                  '0%': {
+                                    boxShadow: '0 0 0 0 rgba(29, 185, 84, 0.7)',
+                                  },
+                                  '70%': {
+                                    boxShadow: '0 0 0 10px rgba(29, 185, 84, 0)',
+                                  },
+                                  '100%': {
+                                    boxShadow: '0 0 0 0 rgba(29, 185, 84, 0)',
+                                  },
+                                }
+                              }}
+                            >
+                              Back !
+                            </Button>
+                          </Box>
+                        </Box>
+                      </ReactCardFlip>
+                    </Paper>
+                  </Box>
 
                     {/* Experience Section */}
                     <Box ref={experienceRef} sx={{ mb: 8 }}>

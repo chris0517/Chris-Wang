@@ -20,6 +20,8 @@ import rest from '../assets/icons/rest-api.svg';
 import databricks from '../assets/icons/databricks.svg';
 import fastEndpoint from '../assets/icons/fastendpoint.png';
 import dotNet from '../assets/icons/dotnet-official.svg';
+import mui from '../assets/icons/material-ui.svg';
+import kendo from '../assets/icons/kendo.png';
 const About = () => {
   const skillCategories = {
     Languages: [
@@ -56,6 +58,14 @@ const About = () => {
       { 
         name: 'Redux', 
         icon: <img src={redux} alt="Redux" width={24} height={24} />
+      },
+      { 
+        name: 'Material UI', 
+        icon: <img src={mui} alt="Redux" width={24} height={24} />
+      },
+      { 
+        name: 'Telerik Kendo React', 
+        icon: <img src={kendo} alt="Redux" width={24} height={24} />
       },
     ],
     Backend: [
