@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, IconButton } from '@mui/material';
+import { Box, IconButton, useMediaQuery, useTheme } from '@mui/material';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 import hui from '../assets/Myself/huihui (2).jpg';
 import tuan from '../assets/Myself/tuan (1).jpg';
 
 const Hobby = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  
   const interests = [
-    { 
+    {
       images: [hui, tuan]
     }
   ];
@@ -18,7 +21,7 @@ const Hobby = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setImageIndex((prev) => (prev + 1) % interests[interestIndex].images.length);
-    }, 6000); // Change image every 3 seconds
+    }, 6000); // Change image every 6 seconds
 
     return () => clearInterval(interval); // Clean up on unmount
   }, [interestIndex, interests]);
@@ -31,22 +34,62 @@ const Hobby = () => {
     setImageIndex((prev) => (prev - 1 + interests[interestIndex].images.length) % interests[interestIndex].images.length);
   };
 
+  // Calculate responsive image size
+  const imageSize = isMobile ? 280 : 500;
+
   return (
-    <Box sx={{ p: { xs: 1, md: 2 }, height: '100%', overflowX: 'hidden' }} style={{paddingBottom: '0'}}>
+    <Box sx={{ 
+      p: { xs: 1, md: 2 }, 
+      height: '100%', 
+      overflowX: 'hidden', 
+      pb: 0 
+    }}>
       {/* Interests Section */}
-      <Box sx={{ p: 3, bgcolor: 'rgba(0, 0, 0, 0.5)', borderRadius: 2 }}>        
-        <Box display="flex" alignItems="center" justifyContent="center" mt={2}>
-          <IconButton onClick={handlePrevImage} color="primary">
+      <Box 
+        sx={{ 
+          p: { xs: 2, md: 3 }, 
+          bgcolor: 'rgba(0, 0, 0, 0.5)', 
+          borderRadius: 2,
+          display: 'flex',
+          justifyContent: 'space-between', // This ensures equal spacing
+          alignItems: 'center',
+          width: '100%'
+        }}
+      >
+        <Box sx={{ width: '40px', display: 'flex', justifyContent: 'center' }}>
+          <IconButton 
+            onClick={handlePrevImage} 
+            color="primary"
+            size={isMobile ? "small" : "medium"}
+          >
             <ArrowBackIos style={{color:'white'}} />
           </IconButton>
+        </Box>
+        
+        <Box sx={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          flex: 1 
+        }}>
           <img 
             src={interests[interestIndex].images[imageIndex]} 
             alt="Interest" 
-            width={500}
-            height={500} 
-            style={{ borderRadius: 8, objectFit: 'cover' }} 
+            width={imageSize}
+            height={imageSize} 
+            style={{ 
+              borderRadius: 8, 
+              objectFit: 'cover',
+              maxWidth: '100%'
+            }} 
           />
-          <IconButton onClick={handleNextImage} color="primary">
+        </Box>
+        
+        <Box sx={{ width: '40px', display: 'flex', justifyContent: 'center' }}>
+          <IconButton 
+            onClick={handleNextImage} 
+            color="primary"
+            size={isMobile ? "small" : "medium"}
+          >
             <ArrowForwardIos style={{color:'white'}} />
           </IconButton>
         </Box>

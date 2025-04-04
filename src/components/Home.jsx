@@ -401,7 +401,7 @@ const Home = () => {
                         {/* Back Side - Hobby */}
                         <Box>
                           <Hobby />
-                          <Box sx={{ p: 2, display: 'flex', justifyContent: 'center' }}>
+                          <Box sx={{ p: 1, display: 'flex', justifyContent: 'center' }} >
                           <Button 
                               variant="contained" 
                               onClick={handleFlip}
