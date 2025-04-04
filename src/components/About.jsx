@@ -22,6 +22,7 @@ import fastEndpoint from '../assets/icons/fastendpoint.png';
 import dotNet from '../assets/icons/dotnet-official.svg';
 import mui from '../assets/icons/material-ui.svg';
 import kendo from '../assets/icons/kendo.png';
+import tw from '../assets/icons/tw.png';
 const About = () => {
   const skillCategories = {
     Languages: [
@@ -66,6 +67,10 @@ const About = () => {
       { 
         name: 'Telerik Kendo React', 
         icon: <img src={kendo} alt="Redux" width={24} height={24} />
+      },
+      { 
+        name: 'Tailwind CSS', 
+        icon: <img src={tw} alt="Redux" width={24} height={24} />
       },
     ],
     Backend: [
