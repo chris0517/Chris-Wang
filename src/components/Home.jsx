@@ -140,7 +140,7 @@ const Home = () => {
         <Box
             sx={{
                 minHeight: "100vh", // Changed from height to minHeight
-                background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${bg})`,
+                background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url(${bg})`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
@@ -148,7 +148,6 @@ const Home = () => {
                 position: "relative",
                 display: "flex",
                 justifyContent: "center" // Center the content container
-                // Removed overflow: "hidden" to allow page scrolling
             }}
         >
             {/* Mobile Header - Visible only on mobile */}
@@ -369,6 +368,7 @@ const Home = () => {
                               I am more than just a developer...
                             </Typography>
                             <Button 
+                              style={{marginBottom: "20px"}}
                               variant="contained" 
                               onClick={handleFlip}
                               sx={{ 

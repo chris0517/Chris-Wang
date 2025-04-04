@@ -121,7 +121,7 @@ const About = () => {
   };
   const intro = [
     "I'm a 4th year Management Engineering student at the University of Waterloo, with specializations in Computing and Artificial Intelligence options.",
-    "I am passionate about human-computer interaction, designing software applications and haptic devices to solve real-world problems", 
+    "I am passionate about human-computer interaction, designing software applications and haptic devices to solve real-world problems.", 
     
   ];
 
@@ -132,7 +132,7 @@ const About = () => {
   ];
 
   return (
-    <Box sx={{ p: { xs: 1, md: 2 }, height: '100%', overflowX: 'hidden' }}>
+    <Box sx={{ p: { xs: 1, md: 2 }, height: '100%', overflowX: 'hidden' }} style={{paddingBottom: '0'}}>
       {/* Profile Section */}
       <Box 
         sx={{ 

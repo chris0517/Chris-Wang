@@ -3,14 +3,14 @@ import { Box, Typography, Card, CardContent, CardMedia, Divider, IconButton,
   useMediaQuery, useTheme, Modal, Backdrop, Fade } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import MentalNote1 from '../assets/MentalNote/MentalNote1.png';
 import MentalNote2 from '../assets/MentalNote/MentalNote2.png';
 import MentalNote3 from '../assets/MentalNote/MentalNote3.png';
 import MentalNote4 from '../assets/MentalNote/MentalNote4.png';
 import MentalNote5 from '../assets/MentalNote/MentalNote5.png';
 import Lsi from '../assets/lsi.jpg';
-import ATS from '../assets/Companies/rc1.png';
-import RC from '../assets/Companies/rc1.png';
+import rbc from '../assets/rbc.webp';
 import DebateAI1 from '../assets/DebateAI/DebateAI1.png';
 import DebateAI2 from '../assets/DebateAI/DebateAI2.png';
 import DebateAI3 from '../assets/DebateAI/DebateAI3.png';
@@ -36,32 +36,23 @@ const projectsSections = [
       "time, the user is able to view a colourful mozaic of their mood " +
       "over time.",
     ], 
-    images: [MentalNote1, MentalNote2, MentalNote3, MentalNote4, MentalNote5]
+    images: [MentalNote1, MentalNote2, MentalNote3, MentalNote4, MentalNote5], 
+    Url:"https://github.com/chris0517/Mental-Note"
   },
   {
     project: "Debate AI",
     location: "University of Waterloo",
-    technologies: "Technologies: React, Node.js, Firebase, OpenAI, SQL, ",
+    technologies: "Technologies: React, Node.js, Firebase, OpenAI, SQL",
     details: [
       "Debate AI is a classroom tool that allows student to practice " + 
       "debating skills with AI bots. The AI bots are trained based on OpenAI APi. " + 
       "The user can sign in/ sign up using gmails through firebase authentication. " + 
       "They can join as student or teachers for calssroom interactions such as create assignments," + 
-      "view debate histories and track their learning progress."
+      "view debate student's debate histories and track their learning progress."
     ], 
     images: [DebateAI7, DebateAI1, DebateAI2, DebateAI3, DebateAI4, DebateAI8, DebateAI10, DebateAI11], 
+    Url:"https://github.com/chris0517/DebateAI"
   },  
-  {
-    project: "LATimes Search Engine",
-    location: "University of Waterloo",
-    technologies: "Technologies: Java",
-    details: [
-      "Built an information retrieval search engine for the LATimes dataset. " +
-      "Used a standard tokenizaer to create custom inverted-index, lexicon, and id maps for efficient search. " + 
-      "Leveraged standard TF-IDF and BM-25 algorithms to retrieve the top ranked documents. " + 
-      "based on the relevance to the query."
-    ], 
-  },
   {
     project: "WaterLook",
     location: "RBC Borealis LSI Mentorship",
@@ -70,7 +61,19 @@ const projectsSections = [
       "Built and fine tuned machine learning models for plant watering times based on environmental conditions for water conservation. "+
       "Supported and guided by preofessional data scientists and ML engineers at RBC Borealis."
     ], 
-    images: [Lsi]
+    images: [rbc, Lsi], 
+    Url:"https://github.com/kimmyhoang/waterlook"
+  },
+  {
+    project: "LATimes Search Engine",
+    location: "University of Waterloo",
+    technologies: "Technologies: Java",
+    details: [
+      "Built an information retrieval search engine for the LATimes dataset. " +
+      "Used a standard tokenizaer to create custom inverted-index, lexicon, and id maps for efficient search. " + 
+      "Leveraged TF-IDF and BM-25 algorithms to retrieve the top ranked documents " + 
+      "based on the relevance to the query."
+    ], 
   },
 ];
 
@@ -192,9 +195,24 @@ const ProjectCard = ({ project }) => {
 
       {/* Content Section */}
       <CardContent sx={{ p: { xs: 2, sm: 3 } }}>
-        <Typography variant={isMobile ? "subtitle1" : "h6"} gutterBottom>
-          {project.project}
-        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        {project.Url && (
+            <IconButton
+            style={{ marginBottom: 5, paddingRight: 0, paddingLeft: 0 }}
+              href={project.Url}
+              target="_blank"
+              sx={{
+                color: 'white',
+                '&:hover': { color: '#6e5494' },
+              }}
+            >
+              <GitHubIcon fontSize="medium" />
+            </IconButton>
+          )}
+          <Typography variant={isMobile ? "subtitle1" : "h6"}>
+            {project.project}
+          </Typography>
+        </Box>
         <Typography variant={isMobile ? "body2" : "subtitle1"} sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
           {project.location}
         </Typography>

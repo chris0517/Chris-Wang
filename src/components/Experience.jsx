@@ -24,7 +24,8 @@ const experienceSections = [
       "Built React frontend for real-time mechatronics visualization and control",
       "Containerized web applications with Docker for Edge Device deployment"
     ],
-    image: ATS
+    image: ATS, 
+    url: "https://atsautomation.com/"
   },
   {
     company: "ATS Corporation - Services",
@@ -35,7 +36,8 @@ const experienceSections = [
       "Developed Excel VBA scripts improving workflow speed by 50%",
       "Created dynamic dashboards using Excel VBA and Power Query"
     ],
-    image: ATS
+    image: ATS, 
+    url: "https://atsautomation.com/"
   },
   {
     company: "Royal Canin",
@@ -46,7 +48,8 @@ const experienceSections = [
       "Implemented regression models achieving 15.63% sales improvement",
       "Created visualizations with Matplotlib for executive reporting"
     ],
-    image: RC
+    image: RC, 
+    url: "https://www.royalcanin.com/ca"
   },
   {
     company: "University of Waterloo Haptic Experience Lab",
@@ -57,7 +60,8 @@ const experienceSections = [
       "Developed Unity/C# prototypes for haptic and VR experiences",
       "Built Arduino-based haptic device prototypes with various sensors"
     ],
-    image: HXLAB
+    image: HXLAB, 
+    url: "https://uwaterloo.ca/haptic-experience-lab/"
   },
   {
     company: "University of Waterloo Alternative Fuels Team (UWAFT)",
@@ -67,7 +71,8 @@ const experienceSections = [
       "Utilizing Python, ROS 2 and RVIZ 2 to extract Control Area Network (CAN) data, visualize extracted information",
       "Analyzing and improving the accuracy of lidar detection machine learning models through the use of PyTorch in Python"
     ],
-    image: UWAFT
+    image: UWAFT, 
+    url: "https://www.uwaft.ca/"
   }
 ];
 
@@ -127,7 +132,18 @@ export default function ExperienceTimeline() {
                 <TimelineConnector />
               </TimelineSeparator>
               <TimelineContent sx={{ py: '12px', px: 2 }}>
-                <Typography color="white" variant="h6" component="span">
+                <Typography
+                  component="a"
+                  onClick={() => window.open(experience.url, '_blank')}
+                  target="_blank"
+                  color="white"
+                  variant="h6"
+                  sx={{
+                    textDecoration: 'none',
+                    cursor: 'pointer', // Add cursor pointer for hand icon
+                    '&:hover': { textDecoration: 'underline', color: 'rgba(255, 255, 255, 0.8)' },
+                  }}
+                >
                   {experience.title}
                 </Typography>
                 <Typography color='rgba(255, 255, 255, 0.7)'>{experience.company}</Typography>
