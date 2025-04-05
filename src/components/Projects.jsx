@@ -15,11 +15,8 @@ import DebateAI1 from '../assets/DebateAI/DebateAI1.png';
 import DebateAI2 from '../assets/DebateAI/DebateAI2.png';
 import DebateAI3 from '../assets/DebateAI/DebateAI3.png';
 import DebateAI4 from '../assets/DebateAI/DebateAI4.png';
-import DebateAI5 from '../assets/DebateAI/DebateAI5.png';
-import DebateAI6 from '../assets/DebateAI/DebateAI6.png';
 import DebateAI7 from '../assets/DebateAI/DebateAI7.png';
 import DebateAI8 from '../assets/DebateAI/DebateAI8.png';
-import DebateAI9 from '../assets/DebateAI/DebateAI9.png';
 import DebateAI10 from '../assets/DebateAI/DebateAI10.png';
 import DebateAI11 from '../assets/DebateAI/DebateAI11.png';
 

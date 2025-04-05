@@ -21,7 +21,7 @@ const Hobby = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setImageIndex((prev) => (prev + 1) % interests[interestIndex].images.length);
-    }, 6000); // Change image every 6 seconds
+    }, 5000); // Change image every 6 seconds
 
     return () => clearInterval(interval); // Clean up on unmount
   }, [interestIndex, interests]);
