@@ -9,7 +9,6 @@ import Home from './components/Home';
 function App() {
   return (
     <Router>
-      {/* <Nav /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
