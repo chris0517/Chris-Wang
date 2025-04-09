@@ -129,13 +129,7 @@ const About = () => {
     "I am passionate about human-computer interaction, designing software applications and haptic devices to solve real-world problems.", 
     
   ];
-
-  const contactLinks = [
-    { text: 'GitHub', url: 'https://github.com/chris0517' },
-    { text: 'LinkedIn', url: 'https://linkedin.com/in/chriswang517' },
-    { text: 'Resume', url: '/Chris-Wang/Resume.pdf' }
-  ];
-
+  
   return (
     <Box sx={{ p: { xs: 1, md: 2 }, height: '100%', overflowX: 'hidden' }} style={{paddingBottom: '0'}}>
       {/* Profile Section */}

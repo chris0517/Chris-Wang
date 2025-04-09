@@ -58,7 +58,7 @@ const projectsSections = [
       "Built and fine tuned machine learning models for plant watering times based on environmental conditions for water conservation. "+
       "Supported and guided by preofessional data scientists and ML engineers at RBC Borealis."
     ], 
-    images: [rbc, Lsi], 
+    images: [rbc], 
     Url:"https://github.com/kimmyhoang/waterlook"
   },
   {
@@ -118,23 +118,23 @@ const ProjectCard = ({ project }) => {
       {/* Image Container with Arrows */}
       {hasImages && (
         <Box sx={{ position: 'relative' }}>
-          <CardMedia
-            sx={{
-              width: '100%',
-              height: { xs: 180, sm: 210, md: 240 },
-              objectFit: 'contain',
-              bgcolor: 'rgba(0, 0, 0, 0.7)',
-              cursor: 'pointer',
-              transition: 'transform 0.2s',
-              '&:hover': {
-                transform: 'scale(1.02)'
-              }
-            }}
-            component="img"
-            image={project.images[currentImageIndex]}
-            title={project.project}
-            onClick={handleImageClick}
-          />
+<CardMedia
+  sx={{
+    width: '100%',
+    height: { xs: 250, sm: 300, md: 350 }, // Increased height values
+    objectFit: 'contain',
+    bgcolor: 'rgba(0, 0, 0, 0.7)',
+    cursor: 'pointer',
+    transition: 'transform 0.2s',
+    '&:hover': {
+      transform: 'scale(1.02)'
+    }
+  }}
+  component="img"
+  image={project.images[currentImageIndex]}
+  title={project.project}
+  onClick={handleImageClick}
+/>
 
         {/* Navigation Arrows - Only show if multiple images */}
         {hasMultipleImages && (
@@ -342,13 +342,7 @@ const Projects = () => {
       overflowX: 'hidden',
       width: '100%'
     }}>
-      <Typography 
-        variant="h4" 
-        gutterBottom 
-        textAlign="left" 
-        color="white"
-        sx={{ fontSize: { xs: '1.5rem', sm: '2rem', md: '2.125rem' } }}
-      >
+      <Typography variant="h4" sx={{ mb: 2, textAlign: 'left', color: 'white' }}>
         Projects
       </Typography>
       <Box sx={{

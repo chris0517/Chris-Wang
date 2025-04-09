@@ -20,9 +20,9 @@ const experienceSections = [
     title: "Software Developer (Innovation)",
     period: "January 2025 - Present | Cambridge",
     details: [
-      "• Developed IIoT API library in C# ASP.NET and REST API to use FastEndpointfor real-time machine data exchange",
-      "• Built React frontend for real-time machine visualization and control",
-      "• Containerized web applications with Docker for Edge Device deployment"
+      "Developed IIoT API library in C# and REST API for real-time machine data exchange",
+      "Built React frontend for real-time mechatronics visualization and control",
+      "Containerized web applications with Docker for Edge Device deployment"
     ],
     image: ATS, 
     url: "https://atsautomation.com/"
@@ -32,9 +32,9 @@ const experienceSections = [
     title: "Toolset Software Developer",
     period: "May 2024 - August 2024 | Cambridge",
     details: [
-      "• Enhanced data processing with Python, PySpark and SQL in Databricks",
-      "• Developed Excel VBA scripts improving workflow speed by 50%",
-      "• Created dynamic dashboards using Excel VBA and Power Query"
+      "Enhanced data processing with Python, PySpark and SQL in Databricks",
+      "Developed Excel VBA scripts improving workflow speed by 50%",
+      "Created dynamic dashboards using Excel VBA and Power Query"
     ],
     image: ATS, 
     url: "https://atsautomation.com/"
@@ -44,9 +44,9 @@ const experienceSections = [
     title: "Data Science Analyst",
     period: "September 2023 - December 2023 | Guelph",
     details: [
-      "• Analyzed Petcare data using Python Pandas for data processing",
-      "• Implemented regression models revealing 15.63% improvement in sales conversion",
-      "• Created visualizations with Matplotlib for executive reporting"
+      "Analyzed Petcare data using Python Pandas for data processing",
+      "Implemented regression models achieving 15.63% sales improvement",
+      "Created visualizations with Matplotlib for executive reporting"
     ],
     image: RC, 
     url: "https://www.royalcanin.com/ca"
@@ -56,9 +56,9 @@ const experienceSections = [
     title: "Haptic Interactions Research Assistant",
     period: "January 2023 - August 2023 | Waterloo",
     details: [
-      "• Led NFRF project research initiatives and team coordination",
-      "• Developed Unity/C# prototypes for haptic and VR experiences",
-      "• Built Arduino-based haptic device prototypes with various sensors"
+      "Led NFRF project research initiatives and team coordination",
+      "Developed Unity/C# prototypes for haptic and VR experiences",
+      "Built Arduino-based haptic device prototypes with various sensors"
     ],
     image: HXLAB, 
     url: "https://uwaterloo.ca/haptic-experience-lab/"
@@ -68,8 +68,8 @@ const experienceSections = [
     title: "Connected & Automated Vehicles Student Developer",
     period: "April 2023 - April 2024 | Waterloo",
     details: [
-      "• Utilizing Python, ROS 2 and RVIZ 2 to extract Control Area Network (CAN) data, visualize extracted information",
-      "• Analyzing and improving the accuracy of lidar detection machine learning models through the use of PyTorch in Python"
+      "Utilizing Python, ROS 2 and RVIZ 2 to extract Control Area Network (CAN) data, visualize extracted information",
+      "Analyzing and improving the accuracy of lidar detection machine learning models through the use of PyTorch in Python"
     ],
     image: UWAFT, 
     url: "https://www.uwaft.ca/"
@@ -89,7 +89,7 @@ export default function ExperienceTimeline() {
       borderRadius: 2,
     }}>
       <Typography variant="h4" sx={{ mb: 2, textAlign: 'left', color: 'white' }}>
-        Experience
+        Experiences
       </Typography>
  
         <Timeline
@@ -116,7 +116,7 @@ export default function ExperienceTimeline() {
                   justifyContent: 'center', 
                   alignItems: 'center',
                   backgroundColor: 'transparent', 
-                  boxShadow: 'none' 
+                  boxShadow: 'none',
                 }}>
                   <img 
                     src={experience.image} 
@@ -125,7 +125,8 @@ export default function ExperienceTimeline() {
                       width: '100%', 
                       height: '100%', 
                       objectFit: 'contain',
-                      borderRadius: '50%' 
+                      borderRadius: '50%',
+                      objectPosition: experience.image === ATS ? 'left 30%' : 'center center',
                     }} 
                   />            
                 </TimelineDot>

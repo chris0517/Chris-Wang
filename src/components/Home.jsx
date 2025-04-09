@@ -85,6 +85,7 @@ const Home = () => {
     const aboutRef = useRef(null);
     const experienceRef = useRef(null);
     const projectsRef = useRef(null);
+    const galleryRef = useRef(null);
     const phrases = ["create", "innovate", "build"];
     const [isFlipped, setIsFlipped] = useState(false);
 
@@ -99,21 +100,27 @@ const Home = () => {
     // Handle scroll in right column to update navigation
     useEffect(() => {
       const handleScroll = () => {
-          const scrollPosition = window.scrollY;
-          
-          // Get positions of each section
-          const aboutPosition = aboutRef.current?.offsetTop || 0;
-          const experiencePosition = experienceRef.current?.offsetTop || 0;
-          const projectsPosition = projectsRef.current?.offsetTop || 0;
-          
-          // Determine active section based on scroll position
-          if (scrollPosition >= projectsPosition - 100) {
-              setActiveSection("projects");
-          } else if (scrollPosition >= experiencePosition - 100) {
-              setActiveSection("experience");
-          } else {
-              setActiveSection("about");
-          }
+        const scrollPosition = window.scrollY;
+        
+        // Get positions of each section
+        const aboutPosition = aboutRef.current?.offsetTop || 0;
+        const experiencePosition = experienceRef.current?.offsetTop || 0;
+        const projectsPosition = projectsRef.current?.offsetTop || 0;
+        const galleryPosition = galleryRef.current?.offsetTop || 0;
+        
+        // Add buffer values for better section detection
+        const buffer = 500;
+        
+        // Determine active section based on scroll position
+        if (scrollPosition >= galleryPosition - buffer) {
+          setActiveSection("gallery");
+        } else if (scrollPosition >= projectsPosition - buffer) {
+          setActiveSection("projects");
+        } else if (scrollPosition >= experiencePosition - buffer) {
+          setActiveSection("experience");
+        } else {
+          setActiveSection("about");
+        }
       };
 
       // Add event listener to window
@@ -157,7 +164,7 @@ const Home = () => {
                 elevation={0}
                 sx={{
                     display: { xs: "block", md: "none" },
-                    background: "rgba(0,0,0,0.85)",
+                    background: "rgba(0,0,0,0.5)",
                     backdropFilter: "blur(10px)",
                     borderBottom: "1px solid rgba(255,255,255,0.1)",
                 }}
@@ -180,7 +187,7 @@ const Home = () => {
                                 color: "rgba(255,255,255,0.9)",
                             }}
                         >
-                            Management Engineering Student | Developer
+                            Management Engineering Student | Software Developer
                         </Typography>
                     </Box>
                     <Box sx={{ display: "flex", gap: 1 }}>
@@ -200,6 +207,14 @@ const Home = () => {
                         >
                             <GitHubIcon />
                         </IconButton>
+                        <IconButton 
+                          href='/Resume.pdf'
+                          target="_blank"
+                          size="small"
+                          sx={{ color: "white" }}
+                      >
+                          <DescriptionIcon/>
+                      </IconButton>
                     </Box>
                 </Toolbar>
             </AppBar>
@@ -285,20 +300,35 @@ const Home = () => {
                                 Experience
                             </Typography>
                             <Typography 
-                                onClick={() => scrollToSection(projectsRef)}
-                                sx={{ 
-                                    color: activeSection === "projects" ? "white" : "rgba(255,255,255,0.6)",
-                                    fontWeight: activeSection === "projects" ? "bold" : "normal",
-                                    cursor: "pointer",
-                                    fontSize: "1.2rem",
-                                    transition: "all 0.3s ease",
-                                    "&:hover": { color: "white" },
-                                    borderLeft: activeSection === "projects" ? "3px solid white" : "3px solid transparent",
-                                    pl: 2
-                                }}
-                            >
-                                Projects
-                            </Typography>
+                              onClick={() => scrollToSection(projectsRef)}
+                              sx={{ 
+                                  color: activeSection === "projects" ? "white" : "rgba(255,255,255,0.6)",
+                                  fontWeight: activeSection === "projects" ? "bold" : "normal",
+                                  cursor: "pointer",
+                                  fontSize: "1.2rem",
+                                  transition: "all 0.3s ease",
+                                  "&:hover": { color: "white" },
+                                  borderLeft: activeSection === "projects" ? "3px solid white" : "3px solid transparent",
+                                  pl: 2
+                              }}
+                          >
+                              Projects
+                          </Typography>
+                          <Typography 
+                              onClick={() => scrollToSection(galleryRef)}
+                              sx={{ 
+                                  color: activeSection === "gallery" ? "white" : "rgba(255,255,255,0.6)",
+                                  fontWeight: activeSection === "gallery" ? "bold" : "normal",
+                                  cursor: "pointer",
+                                  fontSize: "1.2rem",
+                                  transition: "all 0.3s ease",
+                                  "&:hover": { color: "white" },
+                                  borderLeft: activeSection === "gallery" ? "3px solid white" : "3px solid transparent",
+                                  pl: 2
+                              }}
+                          >
+                              Gallery
+                          </Typography>
                         </Stack>
                     </Box>
 
@@ -325,7 +355,7 @@ const Home = () => {
                             <GitHubIcon fontSize="large" />
                         </IconButton>
                         <IconButton 
-                          href='/Chris-Wang/Resume.pdf'
+                          href='/Resume.pdf'
                           target="_blank"
                           sx={{ 
                               color: "white",
@@ -359,79 +389,7 @@ const Home = () => {
                         overflow: 'hidden' 
                       }}
                     >
-                      <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-                        {/* Front Side - About */}
-                        <Box>
-                          <About />
-                          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', gap: 2 }}>
-                            <Typography variant="h6" color="white">
-                              I am more than just a developer...
-                            </Typography>
-                            <Button 
-                              style={{marginBottom: "20px"}}
-                              variant="contained" 
-                              onClick={handleFlip}
-                              sx={{ 
-                                borderRadius: 4,
-                                px: 3,
-                                py: 1,
-                                bgcolor: '#168d40',
-                                '&:hover': {
-                                  bgcolor: '#1ed760'  // Slightly lighter shade for hover
-                                },
-                                animation: 'pulse 2s infinite',
-                                '@keyframes pulse': {
-                                  '0%': {
-                                    boxShadow: '0 0 0 0 rgba(29, 185, 84, 0.7)',
-                                  },
-                                  '70%': {
-                                    boxShadow: '0 0 0 10px rgba(29, 185, 84, 0)',
-                                  },
-                                  '100%': {
-                                    boxShadow: '0 0 0 0 rgba(29, 185, 84, 0)',
-                                  },
-                                }
-                              }}
-                            >
-                              Click Me!
-                            </Button>
-                          </Box>
-                        </Box>
-
-                        {/* Back Side - Hobby */}
-                        <Box>
-                          <Hobby />
-                          <Box sx={{ p: 1, display: 'flex', justifyContent: 'center' }} >
-                          <Button 
-                              variant="contained" 
-                              onClick={handleFlip}
-                              sx={{ 
-                                borderRadius: 4,
-                                px: 3,
-                                py: 1,
-                                bgcolor: '#168d40',
-                                '&:hover': {
-                                  bgcolor: '#1ed760'  // Slightly lighter shade for hover
-                                },
-                                animation: 'pulse 2s infinite',
-                                '@keyframes pulse': {
-                                  '0%': {
-                                    boxShadow: '0 0 0 0 rgba(29, 185, 84, 0.7)',
-                                  },
-                                  '70%': {
-                                    boxShadow: '0 0 0 10px rgba(29, 185, 84, 0)',
-                                  },
-                                  '100%': {
-                                    boxShadow: '0 0 0 0 rgba(29, 185, 84, 0)',
-                                  },
-                                }
-                              }}
-                            >
-                              Back !
-                            </Button>
-                          </Box>
-                        </Box>
-                      </ReactCardFlip>
+                    <About />
                     </Paper>
                   </Box>
 
@@ -458,6 +416,12 @@ const Home = () => {
                             <Projects />
                         </Paper>
                     </Box>
+                    {/* Gallery */}
+                    <Box ref={galleryRef} sx={{ mb: 8 }}>
+                      <Hobby />
+                    </Box>
+
+
 
                     {/* Footer */}
                     <Box sx={{ 
