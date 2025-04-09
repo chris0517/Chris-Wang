@@ -13,8 +13,7 @@ const galleryImages = Object.fromEntries(
   ])
 );
 
-
-function srcset(image, size = 180, rows = 1, cols = 1) {
+function srcset(image, size, rows = 1, cols = 1) {
   return {
     src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
     srcSet: `${image}?w=${size * cols}&h=${
@@ -22,7 +21,6 @@ function srcset(image, size = 180, rows = 1, cols = 1) {
     }&fit=crop&auto=format&dpr=2 2x`,
   };
 }
-
 
 const itemData = [
   {
@@ -71,75 +69,46 @@ const itemData = [
     img: galleryImages['algonhui.jpg'],
   },
 ];
+
 const Hobby = React.forwardRef((props, ref) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const cols = isMobile ? 2 : 4;
+  const baseRowHeight = isMobile ? 160 : isTablet ? 140 : 200;
+  const galleryWidth = isMobile ? '100%' : isTablet ? '95%' : 800;
+  const galleryHeight = isMobile ? 1200 : isTablet ? 1000 : 1250;
   
-  // Base row height
-  const rowHeight = isMobile ? 135 : 180;
-  
-  // Calculate total height based on images and their row spans
-  const calculateTotalRows = () => {
-    let rowsNeeded = 0;
-    let currentRowFill = 0;
-    const totalCols = 4;
+  // Adjust item data for mobile - maintain 2 column layout but simplify large items
+  const adjustedItemData = React.useMemo(() => {
+    if (!isMobile) return itemData;
     
-    // Go through each item and track rows needed
-    itemData.forEach(item => {
-      const itemCols = item.cols || 1;
-      const itemRows = item.rows || 1;
-      
-      // If item doesn't fit in current row, move to next row
-      if (currentRowFill + itemCols > totalCols) {
-        rowsNeeded += 1;
-        currentRowFill = itemCols;
-      } else {
-        currentRowFill += itemCols;
-      }
-      
-      // Account for items that span multiple rows
-      if (itemRows > 1) {
-        rowsNeeded = Math.max(rowsNeeded + itemRows - 1, rowsNeeded);
-      }
-      
-      // If row is filled exactly, reset for next row
-      if (currentRowFill === totalCols) {
-        rowsNeeded += 1;
-        currentRowFill = 0;
-      }
-    });
-    
-    // If there's anything in the last row
-    if (currentRowFill > 0) {
-      rowsNeeded += 1;
-    }
-    
-    return rowsNeeded;
-  };
-  
-  // Calculate the height needed
-  const totalRows = calculateTotalRows();
-  const calculatedHeight = totalRows * rowHeight;
-  
-  // Add some padding
-  const paddingY = isMobile ? 24 : 36; // 12px or 18px on top and bottom
-  const totalHeight = calculatedHeight + paddingY;
+    // For mobile, adjust items that span more than 2 columns
+    return itemData.map(item => ({
+      ...item,
+      // Limit column span to 2 on mobile (full width)
+      cols: item.cols > 2 ? 2 : item.cols || 1,
+      // Keep row spans but adjust for better mobile viewing
+      rows: item.rows || 1
+    }));
+  }, [isMobile]);
   
   return (
     <Box sx={{ 
-      p: { xs: 1.5, md: 2 }, 
+      p: { xs: 1, sm: 1.5, md: 2 }, 
       height: 'auto',
       width: '100%'
     }}>
       <Typography 
-        variant="h6" 
+        variant="h5" 
         sx={{ 
           mb: 2, 
+          fontSize: { xs: '1.75rem', sm: '1.75rem' },
           textAlign: 'left',
-          fontFamily: "'Monoton', cursive",
+          fontFamily: ['Monoton', 'cursive'],
           position: 'relative',
           display: 'inline-block',
-          letterSpacing: '2px',
+          letterSpacing: { xs: '1px', sm: '2px' },
           background: 'linear-gradient(90deg, #79E0EE 15%, #98EECC 40%, #D0F5BE 65%, #FBFFDC 90%)',
           backgroundSize: '300% auto',
           backgroundClip: 'text',
@@ -159,7 +128,7 @@ const Hobby = React.forwardRef((props, ref) => {
         I am more than just a developer
       </Typography>
       <Box sx={{ 
-        p: { xs: 1, md: 1.5 }, 
+        p: { xs: 0.5, sm: 1, md: 1.5 }, 
         bgcolor: 'rgba(0, 0, 0, 0.5)', 
         borderRadius: 2,
         display: 'flex',
@@ -167,29 +136,33 @@ const Hobby = React.forwardRef((props, ref) => {
         alignItems: 'center',
         width: '100%'
       }}>
-    <ImageList
-      sx={{ width: 800, height: 1200, overflowY: 'hidden' }}
-      variant="quilted"
-      cols={4}
-      rowHeight={200}
-    >
-      {itemData.map((item) => (
-        <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
-          <img
-            {...srcset(item.img, 180, item.rows, item.cols)}
-            alt={item.title}
-            loading="lazy"
-            style={{
-              objectFit: 'cover',
-              // objectPosition: item.img === ATS ? 'center 30%' : // Adjust hui image position
-              //               item.img === tuan ? 'center 30%' : // Adjust tuan image position
-              //               item.img === scene2 ? 'center 50%' : // Adjust scene2 image position
-              //               'center center' // Default position for other images
-            }}
-          />
-        </ImageListItem>
-      ))}
-    </ImageList>
+        <ImageList
+          sx={{ 
+            width: galleryWidth, 
+            height: galleryHeight,
+            overflow: 'auto' // Allow scrolling when needed
+          }}
+          variant="quilted"
+          cols={cols}
+          rowHeight={baseRowHeight}
+          gap={isMobile ? 4 : 8}
+        >
+          {(isMobile ? adjustedItemData : itemData).map((item) => (
+            <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
+              <img
+                {...srcset(item.img, baseRowHeight, item.rows, item.cols)}
+                alt={item.title || "Gallery image"}
+                loading="lazy"
+                style={{
+                  objectFit: 'cover',
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '4px'
+                }}
+              />
+            </ImageListItem>
+          ))}
+        </ImageList>
       </Box>
     </Box>
   );
@@ -197,8 +170,15 @@ const Hobby = React.forwardRef((props, ref) => {
 
 // Main component that wraps Hobby in a dynamically sized Paper
 const DynamicHobbyContainer = React.forwardRef((props, ref) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  
   return (
-    <Box ref={ref} sx={{ mb: 8 }}>
+    <Box ref={ref} sx={{ 
+      mb: { xs: 4, md: 8 },
+      mx: { xs: 1, sm: 2, md: 'auto' },
+      maxWidth: '100%'
+    }}>
       <Paper elevation={6} sx={{ 
         background: 'transparent',
         boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
