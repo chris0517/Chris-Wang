@@ -49,6 +49,7 @@ const itemData = [
   },
   {
     img: galleryImages['rockyhui.jpg'],
+    title: 'rockyhui',
   },
   {
     img: galleryImages['dino.jpg'],
@@ -154,7 +155,8 @@ const Hobby = React.forwardRef((props, ref) => {
                 alt={item.title || "Gallery image"}
                 loading="lazy"
                 style={{
-                  objectFit: 'cover',
+                  objectFit: item.title === 'rockyhui' ? 'cover' : 'cover',
+                  objectPosition: item.title === 'rockyhui' ? 'center top' : 'center',
                   width: '100%',
                   height: '100%',
                   borderRadius: '4px'
