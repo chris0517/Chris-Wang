@@ -25,6 +25,7 @@ import kendo from '../assets/icons/kendo.png';
 import tw from '../assets/icons/tw.png';
 import aws from '../assets/icons/icons8-aws.svg';
 import wsl from '../assets/icons/wsl.webp';
+import go from '../assets/icons/golangic.svg';
 
 const About = () => {
   const skillCategories = {
@@ -48,6 +49,10 @@ const About = () => {
       { 
         name: 'C#', 
         icon: <img src={csharp} alt="C#" width={24} height={24} />
+      },
+      { 
+        name: 'Golang', 
+        icon: <img src={go} alt="Golang" width={24} height={24} />
       },
       { 
         name: 'Arduino', 
