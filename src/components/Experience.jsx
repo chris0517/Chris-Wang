@@ -20,9 +20,9 @@ const experienceSections = [
     title: "Software Developer (Innovation)",
     period: "January 2025 - Present | Cambridge",
     details: [
-      "Developed IIoT API library in C# and REST API for real-time machine data exchange",
-      "Built React frontend for real-time mechatronics visualization and control",
-      "Containerized web applications with Docker for Edge Device deployment"
+      "Developed IIoT API library in C#, FastEndpointsand REST API for Industrial Edge Device data exchange",
+      "Built React frontend for real-time Edge Device visualization and control",
+      "Containerized web applications with Docker for deployment"
     ],
     image: ATS, 
     url: "https://atsautomation.com/"
@@ -33,7 +33,7 @@ const experienceSections = [
     period: "May 2024 - August 2024 | Cambridge",
     details: [
       "Enhanced data processing with Python, PySpark and SQL in Databricks",
-      "Developed Excel VBA scripts improving workflow speed by 50%",
+      "Developed Excel VBA scripts improving workflow speed by approximately 50%",
       "Created dynamic dashboards using Excel VBA and Power Query"
     ],
     image: ATS, 
