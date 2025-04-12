@@ -23,6 +23,9 @@ import dotNet from '../assets/icons/dotnet-official.svg';
 import mui from '../assets/icons/material-ui.svg';
 import kendo from '../assets/icons/kendo.png';
 import tw from '../assets/icons/tw.png';
+import aws from '../assets/icons/icons8-aws.svg';
+import wsl from '../assets/icons/wsl.webp';
+
 const About = () => {
   const skillCategories = {
     Languages: [
@@ -121,6 +124,14 @@ const About = () => {
       { 
         name: 'Kubernetes', 
         icon: <SiKubernetes color="white" size={24} />
+      },
+      { 
+        name: 'AWS', 
+        icon: <img src={aws} alt="aws" width={24} height={24} />
+      },
+      { 
+        name: 'WSL', 
+        icon: <img src={wsl} alt="aws" width={24} height={24} />
       },
     ],
   };
