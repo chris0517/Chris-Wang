@@ -335,7 +335,7 @@ const Home = () => {
                     {/* Social Links */}
                     <Box sx={{ display: "flex", gap: 2 }}>
                         <IconButton 
-                            href="https://linkedin.com/in/yourprofile" 
+                            href="https://www.linkedin.com/in/chriswang517/" 
                             target="_blank"
                             sx={{ 
                                 color: "white",
@@ -345,7 +345,7 @@ const Home = () => {
                             <LinkedInIcon fontSize="large" />
                         </IconButton>
                         <IconButton 
-                            href="https://github.com/yourusername" 
+                            href="https://github.com/chris0517" 
                             target="_blank"
                             sx={{ 
                                 color: "white",
