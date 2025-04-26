@@ -192,7 +192,7 @@ const Home = () => {
                     </Box>
                     <Box sx={{ display: "flex", gap: 1 }}>
                         <IconButton 
-                            href="https://linkedin.com/in/yourprofile" 
+                            href="https://www.linkedin.com/in/chriswang517/" 
                             target="_blank"
                             size="small"
                             sx={{ color: "white" }}
@@ -200,7 +200,7 @@ const Home = () => {
                             <LinkedInIcon />
                         </IconButton>
                         <IconButton 
-                            href="https://github.com/yourusername" 
+                            href="https://github.com/chris0517" 
                             target="_blank"
                             size="small"
                             sx={{ color: "white" }}
