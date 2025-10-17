@@ -85,7 +85,7 @@ const About = () => {
     Backend: [
       {
         name: 'Spring/Spring Boot',
-        icon: <img src={java} alt="Java" width={24} height={24} />
+        icon: <img src={spring} alt="spring" width={24} height={24} />
       },
       { 
         name: 'Node.js', 

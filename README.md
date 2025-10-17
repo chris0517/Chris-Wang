@@ -1,2 +1,4 @@
 # Chris Wang Portfolio
-Last Update 08/22/2025
+Last Update 10/17/2025
+Deploy: npm run deploy
+
