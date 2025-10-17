@@ -66,9 +66,9 @@ const projectsSections = [
     location: "University of Waterloo",
     technologies: "Technologies: Java",
     details: [
-      "Built an information retrieval search engine for the LATimes dataset. " +
+      "Built an information retrieval search engine for the LATimes Journal. " +
       "Used a standard tokenizaer to create custom inverted-index, lexicon, and id maps for efficient search. " + 
-      "Leveraged TF-IDF and BM-25 algorithms to retrieve the top ranked documents " + 
+      "Leveraged NLP technique TF-IDF and BM-25 algorithms to retrieve the top ranked documents " + 
       "based on the relevance to the query."
     ], 
   },

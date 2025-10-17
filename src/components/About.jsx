@@ -26,6 +26,7 @@ import tw from '../assets/icons/tw.png';
 import aws from '../assets/icons/icons8-aws.svg';
 import wsl from '../assets/icons/wsl.webp';
 import go from '../assets/icons/golangic.svg';
+import spring from '../assets/icons/spring.svg';
 
 const About = () => {
   const skillCategories = {
@@ -82,6 +83,10 @@ const About = () => {
       },
     ],
     Backend: [
+      {
+        name: 'Spring/Spring Boot',
+        icon: <img src={java} alt="Java" width={24} height={24} />
+      },
       { 
         name: 'Node.js', 
         icon: <img src={nodejs} alt="Node.js" width={24} height={24} />

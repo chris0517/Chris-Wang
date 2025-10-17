@@ -9,6 +9,7 @@ import TimelineDot from '@mui/lab/TimelineDot';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
+import CTCT from '../assets/Companies/CTCT.png';
 import ATS from '../assets/Companies/ATS.png';
 import RC from '../assets/Companies/rc1.png';
 import HXLAB from '../assets/Companies/hxlab.png';
@@ -16,9 +17,22 @@ import UWAFT from '../assets/Companies/uwaft.png';
 
 const experienceSections = [
   {
+    company: "Constant Contact",
+    title: "Software Developer",
+    period: "January 2025 - Present | Waterloo",
+    details: [
+      "Developed a rate limiter for the payment system to prevent credit card and payment washing using Java Spring",
+      "Implemented Splunk alerts to monitor payment system activity and improve detection and response to DDoS attacks",
+      "Deployed Grafana, Loki, and Prometheus Alertmanager on Kubernetes to monitor microservices and cron jobs, improving system visibility, reliability, and stability",
+      "Refactored legacy Spring components, improving code maintainability, scalability, and system performance"
+    ],
+    image: CTCT, 
+    url: "https://www.constantcontact.com/"
+  },
+  {
     company: "ATS Corporation - Innovation",
     title: "Software Developer (Innovation)",
-    period: "January 2025 - Present | Cambridge",
+    period: "January 2025 - April 2025 | Cambridge",
     details: [
       "Developed IIoT API library in C#, FastEndpointsand REST API for Industrial Edge Device data exchange",
       "Built React frontend for real-time Edge Device visualization and control",
